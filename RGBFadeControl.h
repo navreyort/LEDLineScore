@@ -17,15 +17,6 @@ typedef struct Color {
     }
 } Color;
 
-//------ START: Increase Number of Colors here ------------------
-#define WHITE new Color(255,255,255)
-#define YELLOW new Color(255,255,0)
-#define BLUE new Color(0,0,255)
-#define GREEN new Color(0,255,0)
-#define RED new Color(255,0,0)
-#define BLACK new Color(0,0,0)
-//------ END: Increase Number of Colors here ------------------
-
 //maxStep is multiplied by 60 so that steps can be measured in time/second
 class RGBFadeControl {
   public:
