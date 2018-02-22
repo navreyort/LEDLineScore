@@ -6,9 +6,12 @@
 class ColorEnvelope {
 public:
   ColorEnvelope(Color **colors, uint16_t *times, uint16_t numEvents, uint8_t id):
-  colors(colors),times(times),numEvents(numEvents),id(id),curIndex(0){}
+  colors(colors),times(times),numEvents(numEvents),id(id),curIndex(0){
+    this->rgbControl = new RGBFadeControl(this->times[0],this->id);
+    this->rgbControl->setup();
+    this->rgbControl->setFutureColor(this->colors[0]);  
+  }
 
-  void setup();
   void update();
   inline uint8_t getID();
   uint32_t getCurrentColor();
@@ -21,12 +24,6 @@ private:
   uint8_t id;
   uint16_t curIndex;
 };
-
-inline void ColorEnvelope::setup(){
-  this->rgbControl = new RGBFadeControl(this->times[0],this->id);
-  this->rgbControl->setup();
-  this->rgbControl->setFutureColor(this->colors[0]);
-}
 
 inline void ColorEnvelope::update(){
   this->rgbControl->update();
