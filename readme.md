@@ -26,9 +26,9 @@ Be sure to update the `kNumEvents1` macro to match the number of elements in the
 
 ### Adding New Colors
 
-You can add new colors by creating new color macros. For example:
+You can add new colors by creating new `Color` variables. For example:
 
-    #define MAGENTA new Color(255,0,255)
+    Color MAGENTA = new Color(255,0,255);
     
 ### Adding More LEDs
 

@@ -9,12 +9,12 @@ WS2801Control *wsControl;
 ColorEnvelope *envelopes[kNumLEDs];
 
 //------ START: Increase Number of Colors here ------------------
-#define WHITE new Color(255,255,255)
-#define YELLOW new Color(255,255,0)
-#define BLUE new Color(0,0,255)
-#define GREEN new Color(0,255,0)
-#define RED new Color(255,0,0)
-#define BLACK new Color(0,0,0)
+Color *WHITE = new Color(255,255,255);
+Color *YELLOW = new Color(255,255,0);
+Color *BLUE = new Color(0,0,255);
+Color *GREEN = new Color(0,255,0);
+Color *RED = new Color(255,0,0);
+Color *BLACK = new Color(0,0,0);
 //------ END: Increase Number of Colors here ------------------
 //------- START: Score for LEDS -------------------
 #define kNumEvents1 5
