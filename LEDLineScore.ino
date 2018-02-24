@@ -19,31 +19,31 @@ ColorEnvelope *envelopes[kNumLEDs];
 //------- START: Score for LEDS -------------------
 #define kNumEvents1 5
 Color *color1[kNumEvents1] = {BLUE, BLACK, BLACK, GREEN, BLACK};
-uint16_t time1[kNumEvents1] = {4,2,4,6,2};
+uint8_t time1[kNumEvents1] = {4,2,4,6,2};
 
 #define kNumEvents2 3
 Color *color2[kNumEvents2] = {YELLOW, BLACK, BLACK};
-uint16_t time2[kNumEvents2] = {4,2,4};
+uint8_t time2[kNumEvents2] = {4,2,4};
 
 #define kNumEvents3 5
 Color *color3[kNumEvents3] = {BLACK, RED, BLACK, BLACK, YELLOW};
-uint16_t time3[kNumEvents3] = {4,2,4,2,4};
+uint8_t time3[kNumEvents3] = {4,2,4,2,4};
 
 #define kNumEvents4 3
 Color *color4[kNumEvents4] = {BLACK, BLACK, YELLOW};
-uint16_t time4[kNumEvents4] = {4,2,4};
+uint8_t time4[kNumEvents4] = {4,2,4};
 
 #define kNumEvents5 5
 Color *color5[kNumEvents5] = {YELLOW, BLACK, BLUE, BLACK, RED};
-uint16_t time5[kNumEvents5] = {4,2,4,3,3};
+uint8_t time5[kNumEvents5] = {4,2,4,3,3};
 
 #define kNumEvents6 6
 Color *color6[kNumEvents6] = {YELLOW, BLACK, RED, BLACK, BLUE, BLACK};
-uint16_t time6[kNumEvents6] = {4,2,4,3,2,4};
+uint8_t time6[kNumEvents6] = {4,2,4,3,2,4};
 
 #define kNumEvents7 3
 Color *color7[kNumEvents7] = {YELLOW, BLUE, RED};
-uint16_t time7[kNumEvents7] = {4,2,4};
+uint8_t time7[kNumEvents7] = {4,2,4};
 //------- END: Score for LEDS -------------------
 
 void setup() {

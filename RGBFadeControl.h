@@ -20,7 +20,7 @@ typedef struct Color {
 //maxStep is multiplied by 60 so that steps can be measured in time/second
 class RGBFadeControl {
   public:
-    RGBFadeControl(uint16_t maxStep, uint8_t id):step(0x00),isDone(false),maxStep(maxStep*60),id(id){}
+    RGBFadeControl(uint8_t maxStep, uint8_t id):step(0x00),isDone(false),maxStep(maxStep*60),id(id){}
     void setup(void);
     void update(void);
     void interpolate(void);
@@ -30,7 +30,7 @@ class RGBFadeControl {
     void setFutureColor(Color *c);
     boolean getIsDone(void) const;
     uint32_t getCurrentColor(void) const;
-    void setDuration(uint16_t duration);
+    void setDuration(uint8_t duration);
     
   private:
     uint8_t id;
@@ -109,7 +109,7 @@ inline uint32_t RGBFadeControl::getCurrentColor(void) const{
   return (((uint32_t) this->curColor->red) << 16) | (((uint32_t) this->curColor->green) << 8) | this->curColor->blue;
 }
 
-inline void RGBFadeControl::setDuration(uint16_t duration){
+inline void RGBFadeControl::setDuration(uint8_t duration){
   this->maxStep = duration * 60;  
 }
 

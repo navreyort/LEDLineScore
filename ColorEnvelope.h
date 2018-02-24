@@ -5,7 +5,7 @@
 
 class ColorEnvelope {
 public:
-  ColorEnvelope(Color **colors, uint16_t *times, uint16_t numEvents, uint8_t id):
+  ColorEnvelope(Color **colors, uint8_t *times, uint16_t numEvents, uint8_t id):
   colors(colors),times(times),numEvents(numEvents),id(id),curIndex(0){
     this->rgbControl = new RGBFadeControl(this->times[0],this->id);
     this->rgbControl->setup();
@@ -19,7 +19,7 @@ public:
 private:
   RGBFadeControl *rgbControl;
   Color **colors;
-  uint16_t *times;
+  uint8_t *times;
   uint16_t numEvents;
   uint8_t id;
   uint16_t curIndex;
