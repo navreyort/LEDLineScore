@@ -27,7 +27,6 @@ private:
 
 inline void ColorEnvelope::update(){
   this->rgbControl->update();
-  
   if(this->rgbControl->getIsDone()){
     this->curIndex = (this->curIndex + 1) % this->numEvents;
     this->rgbControl->setFutureColor(this->colors[this->curIndex]);

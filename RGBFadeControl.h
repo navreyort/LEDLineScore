@@ -17,7 +17,8 @@ typedef struct Color {
     }
 } Color;
 
-//maxStep is multiplied by 60 so that steps can be measured in time/second
+//maxStep is multiplied by 60 so that steps can be measured in time/second 
+//(i.e. assumes the update function is in animation frame)
 class RGBFadeControl {
   public:
     RGBFadeControl(uint8_t maxStep, uint8_t id):step(0x00),isDone(false),maxStep(maxStep*60),id(id){}
@@ -40,7 +41,6 @@ class RGBFadeControl {
     boolean isDone;
     uint16_t step;
     uint16_t maxStep;
-    uint32_t curTime;
     static uint8_t scaleFactor;
 };
 
@@ -53,17 +53,12 @@ inline void RGBFadeControl::setup(void){
   
   this->setColor(prevColor,0x00);
   this->setColor(curColor,0x00);
-  
-  this->curTime = millis();
 }
 
 inline void RGBFadeControl::update(void){
-  if(millis() - this->curTime > 17){ //60 frame per second
-    this->curTime = millis();
-    if(++this->step <= this->maxStep) this->interpolate(); 
-    else if(!this->isDone) {
-      this->isDone = true;    
-    }
+  if(++this->step <= this->maxStep) this->interpolate(); 
+  else if(!this->isDone) {
+    this->isDone = true;    
   }
 }
 

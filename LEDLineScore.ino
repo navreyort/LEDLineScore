@@ -46,6 +46,8 @@ Color *color7[kNumEvents7] = {YELLOW, BLUE, RED};
 uint8_t time7[kNumEvents7] = {4,2,4};
 //------- END: Score for LEDS -------------------
 
+uint32_t curTime = 0;
+
 void setup() {
   wsControl = new WS2801Control(kDataPin, kClockPin);
 
@@ -58,13 +60,15 @@ void setup() {
   envelopes[5] = new ColorEnvelope(color6,time6,kNumEvents6,10);  
   envelopes[6] = new ColorEnvelope(color7,time7,kNumEvents7,12);  
   //------- Add new color sequences here -------------------
-  
 }
 
 void loop() {
-  for(uint8_t i=0;i<kNumLEDs;i++){
-    envelopes[i]->update(); 
-    wsControl->setPixel(envelopes[i]->getID(),envelopes[i]->getCurrentColor());
+  if(millis() - curTime > 17){ //60 frame per second
+    for(uint8_t i=0;i<kNumLEDs;i++){
+      envelopes[i]->update(); 
+      wsControl->setPixel(envelopes[i]->getID(),envelopes[i]->getCurrentColor());
+    }
+    wsControl->update();
+    curTime = millis();
   }
-  wsControl->update();
 }
