@@ -15,6 +15,7 @@ public:
   void update();
   inline uint8_t getID();
   uint32_t getCurrentColor();
+  void reset(void);
   
 private:
   RGBFadeControl *rgbControl;
@@ -40,6 +41,11 @@ inline uint8_t ColorEnvelope::getID() {
 
 inline uint32_t ColorEnvelope::getCurrentColor(){
   return this->rgbControl->getCurrentColor();
+}
+
+inline void ColorEnvelope::reset(){
+  this->rgbControl->reset();
+  this->rgbControl->setFutureColor(this->colors[0]);
 }
 
 #endif //ENVELOPE_H
